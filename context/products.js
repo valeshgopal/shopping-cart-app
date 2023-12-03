@@ -1,4 +1,3 @@
-// ItemContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ProductsContext = createContext();

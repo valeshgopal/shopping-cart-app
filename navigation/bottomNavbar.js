@@ -49,7 +49,6 @@ function BottomNavbar({ state, descriptors, navigation }) {
                     })
 
                     if (!isFocused && !event.defaultPrevented) {
-                        // The `merge: true` option makes sure that the params inside the tab screen are preserved
                         navigation.navigate({ name: route.name, merge: true })
                     }
                 }
@@ -122,7 +121,6 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         height: 72,
-        // alignItems: 'center',
         paddingTop: 10,
         justifyContent: 'space-between',
         backgroundColor: '#F8F7FB'

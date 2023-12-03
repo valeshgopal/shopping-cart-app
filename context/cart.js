@@ -1,4 +1,3 @@
-// CartContext.js
 import React, { createContext, useContext, useReducer } from 'react';
 import Toast from 'react-native-toast-message';
 
@@ -54,10 +53,8 @@ export const CartProvider = ({ children }) => {
                         updatedCartItems[removedItemIndex].quantity - 1
                     );
 
-                    // Update the quantity
                     updatedCartItems[removedItemIndex].quantity = newQuantity;
 
-                    // Remove the item if quantity is zero
                     if (newQuantity === 0) {
                         updatedCartItems.splice(removedItemIndex, 1);
                     }

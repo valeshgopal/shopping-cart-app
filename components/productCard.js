@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     },
     iconContainer: {
         padding: 13,
-        // backgroundColor: 'red'
     },
 });
 
