@@ -1,8 +1,8 @@
 {
   "expo": {
-    "scheme": "groceryApp",
-    "name": "Grocery App",
-    "slug": "grocery-app",
+    "scheme": "shoppingcart",
+    "name": "Shopping Cart",
+    "slug": "shopping-cart",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#2A4BA0"
+      "backgroundColor": "#740074"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -21,10 +21,25 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.valesh.groceryapp"
+      "package": "com.valesh.shoppingcart"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/manrope/Manrope_300Light.ttf",
+            "node_modules/@expo-google-fonts/manrope/Manrope_400Regular.ttf",
+            "node_modules/@expo-google-fonts/manrope/Manrope_500Medium.ttf",
+            "node_modules/@expo-google-fonts/manrope/Manrope_600SemiBold.ttf",
+            "node_modules/@expo-google-fonts/manrope/Manrope_700Bold.ttf",
+            "node_modules/@expo-google-fonts/manrope/Manrope_800ExtraBold.ttf"
+          ]
+        }
+      ]
+    ]
   }
 }

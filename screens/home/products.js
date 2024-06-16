@@ -5,7 +5,6 @@ import { useProducts } from '../../context/products';
 
 const Products = () => {
     const { globalStyle } = useGlobalStyle();
-
     const { products, isLoading } = useProducts()
 
     const renderProduct = ({ item, index }) => (
@@ -14,17 +13,6 @@ const Products = () => {
 
     return (
         <View style={styles.container}>
-            <Text
-                style={{
-                    fontFamily: globalStyle.font.regular,
-                    fontSize: 30,
-                    lineHeight: 38,
-                    marginBottom: 12
-                }}
-            >
-                Recommended
-            </Text>
-
             {isLoading ?
                 <View style={styles.loader}>
                     <ActivityIndicator size="large" color={globalStyle.color.primary} />
@@ -45,7 +33,7 @@ const Products = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 27,
+        // marginTop: 27,
     },
     loader: {
         width: '100%',

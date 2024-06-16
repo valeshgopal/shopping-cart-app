@@ -1,6 +1,6 @@
 import Svg, { Path, G } from 'react-native-svg';
 
-export const FavoritesIcon = ({ size = 24, fill = 'none', stroke = '#000', strokeWidth = 1.5 }) => {
+export const FavoritesIcon = ({ size = 24, fill = 'none', stroke = '#fff', strokeWidth = 1.5 }) => {
     return (
         <Svg
             width={size}

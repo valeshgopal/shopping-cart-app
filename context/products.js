@@ -9,9 +9,9 @@ export const ProductsProvider = ({ children }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://dummyjson.com/products');
+                const response = await fetch(process.env.EXPO_PUBLIC_API_URL);
                 const data = await response.json();
-                setProducts(data.products);
+                setProducts(data.data);
                 setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching items:', error);

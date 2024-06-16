@@ -23,16 +23,27 @@ const Favorites = () => {
                 >
                     Favorites ({favorites.length})
                 </Text>
-                <View style={{ flex: 1 }}>
-                    <FlatList
-                        data={favorites}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={renderProduct}
-                        numColumns={2}
-                        showsVerticalScrollIndicator={false}
-                        initialNumToRender={10}
-                    />
-                </View>
+                {favorites.length > 0 ? (
+                    <View style={{ flex: 1 }}>
+                        <FlatList
+                            data={favorites}
+                            keyExtractor={(item) => item.id.toString()}
+                            renderItem={renderProduct}
+                            numColumns={2}
+                            showsVerticalScrollIndicator={false}
+                            initialNumToRender={10}
+                        />
+                    </View>
+                ) : (
+                    <Text
+                        style={{
+                            fontFamily: globalStyle.font.medium,
+                            fontSize: 16,
+                        }}
+                    >
+                        No favorites. Add some now!
+                    </Text>
+                )}
             </View>
         </SafeAreaView>
     );

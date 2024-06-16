@@ -13,7 +13,7 @@ export const CartItemsCounter = ({ quantity, borderColor }) => {
             <Text
                 style={{
                     fontFamily: globalStyle.font.bold,
-                    color: '#fff',
+                    color: '#000',
                     fontSize: 12,
                 }}
             >

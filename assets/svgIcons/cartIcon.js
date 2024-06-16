@@ -1,12 +1,12 @@
 import Svg, { Path } from 'react-native-svg';
 
-export const CartIcon = ({ size = 18, fill, stroke = '#fff' }) => {
+export const CartIcon = ({ size = 18, fill = 'none', stroke = '#fff' }) => {
     return (
         <Svg
             width={+size}
             height={+size + 2}
             viewBox='0 0 18 20'
-            fill='none'
+            fill={fill}
             xmlns='http://www.w3.org/2000/svg'
         >
             <Path

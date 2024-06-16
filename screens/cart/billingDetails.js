@@ -3,7 +3,6 @@ import { useGlobalStyle } from '../../globalStyle';
 
 const BillingDetails = ({ totalPrice }) => {
     const { globalStyle } = useGlobalStyle();
-
     const DELIVERY_FEE = 2;
     return (
         <View style={styles.container}>
@@ -56,14 +55,22 @@ const BillingDetails = ({ totalPrice }) => {
                     style={{
                         fontFamily: globalStyle.font.semibold,
                         color: 'rgba(30, 34, 43, 1)',
-                        marginTop: 4
+                        marginTop: 4,
                     }}
                 >
                     ${(totalPrice + DELIVERY_FEE).toFixed(2)}
                 </Text>
             </View>
-            <TouchableOpacity style={[styles.checkoutBtn, { backgroundColor: globalStyle.color.primary }]}>
-                <Text style={{ fontFamily: globalStyle.font.semibold, color: '#fff' }}>Proceed To Checkout</Text>
+            <TouchableOpacity
+                style={[
+                    styles.checkoutBtn,
+                    { backgroundColor: globalStyle.color.primary },
+                ]}
+                onPress={() => { }}
+            >
+                <Text style={{ fontFamily: globalStyle.font.semibold, color: '#fff' }}>
+                    Proceed To Checkout
+                </Text>
             </TouchableOpacity>
         </View>
     );
@@ -86,11 +93,11 @@ const styles = StyleSheet.create({
     },
     checkoutBtn: {
         height: 56,
-        borderRadius: 20,
+        borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 18
-    }
+        marginTop: 18,
+    },
 });
 
 export default BillingDetails;

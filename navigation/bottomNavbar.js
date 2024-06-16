@@ -1,9 +1,8 @@
 import { View, Text, TouchableOpacity, Platform } from 'react-native'
 import { StyleSheet } from 'react-native'
 import { HomeIcon } from '../assets/svgIcons/homeIcon'
-import { CategoriesIcon } from '../assets/svgIcons/categoriesIcon'
 import { FavoritesIcon } from '../assets/svgIcons/favoritesIcon'
-import { MoreIcon } from '../assets/svgIcons/moreIcon'
+import { CartIcon } from '../assets/svgIcons/cartIcon'
 import { useState } from 'react'
 import { useGlobalStyle } from '../globalStyle'
 
@@ -15,8 +14,8 @@ const ICONS = (routeName, props = {}) => {
             return <CategoriesIcon size={props.size} fill={props.fill} strokeWidth={props.strokeWidth} />
         case 'Favorites':
             return <FavoritesIcon size={props.size} fill={props.fill} strokeWidth={props.strokeWidth} />
-        case 'More':
-            return <MoreIcon size={props.size} fill={props.fill} strokeWidth={props.strokeWidth} />
+        case 'Cart':
+            return <CartIcon size={props.size} fill={props.fill} strokeWidth={props.strokeWidth} />
     }
 }
 
@@ -27,7 +26,7 @@ function BottomNavbar({ state, descriptors, navigation }) {
     return (
         <View
             style={
-                styles.container
+                [styles.container, { backgroundColor: globalStyle.color.primary }]
             }
         >
             {state.routes.map((route, index) => {
@@ -82,31 +81,32 @@ function BottomNavbar({ state, descriptors, navigation }) {
                         key={route.name}
                     >
                         <View style={styles.tab}>
-                            <View style={isFocused ? styles.icon : {}}>
+                            <View>
                                 {isFocused ? ICONS(route.name, {
                                     fill:
                                         globalStyle.color.secondary,
                                     size: 24,
-                                    strokeWidth: 0
+                                    stroke: globalStyle.color.secondary,
+
                                 }) : ICONS(route.name, {
                                     fill:
                                         'none',
                                     size: 24,
                                 })}
                             </View>
-                            {!isFocused ? <Text
+                            <Text
                                 style={[
                                     styles.tabText,
                                     {
                                         fontFamily: globalStyle.font.medium,
                                         color:
-                                            '#8891A5',
+                                            isFocused ? globalStyle.color.secondary : '#fff',
                                         lineHeight: 16
                                     },
                                 ]}
                             >
                                 {label}
-                            </Text> : null}
+                            </Text>
                         </View>
                     </TouchableOpacity>
                 )

@@ -36,8 +36,13 @@ const Cart = () => {
                 }}
             >
                 <Image
-                    source={{ uri: item.thumbnail }}
-                    style={{ width: 30, height: 30, borderRadius: 8 }}
+                    source={{ uri: item.attributes.image }}
+                    style={{
+                        width: 30,
+                        height: 30,
+                        borderRadius: 8,
+                        objectFit: 'contain',
+                    }}
                 />
                 <View>
                     <Text
@@ -46,9 +51,9 @@ const Cart = () => {
                             color: 'rgba(30, 34, 43, 1)',
                         }}
                     >
-                        {item.title.length > 20
-                            ? item.title.slice(0, 20) + '...'
-                            : item.title}
+                        {item.attributes.name.length > 20
+                            ? item.attributes.name.slice(0, 20) + '...'
+                            : item.attributes.name}
                     </Text>
                     <Text
                         style={{
@@ -56,7 +61,7 @@ const Cart = () => {
                             color: 'rgba(30, 34, 43, 1)',
                         }}
                     >
-                        ${item.price}
+                        ${item.attributes.price}
                     </Text>
                 </View>
             </View>
@@ -80,35 +85,53 @@ const Cart = () => {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <BackIcon />
                 </TouchableOpacity>
-                <Text style={{ fontFamily: globalStyle.font.regular, fontSize: 16 }}>
+                <Text style={{ fontFamily: globalStyle.font.semibold, fontSize: 16 }}>
                     Shopping Cart ({quantity ? quantity : 0})
                 </Text>
             </View>
-            <View
-                style={{
-                    paddingHorizontal: 20,
-                    height: height - (headerHeight + footerHeight),
-                }}
-            >
-                <FlatList
-                    data={cartState.cartItems}
-                    keyExtractor={(item) => item.id}
-                    renderItem={renderItem}
-                    showsVerticalScrollIndicator={false}
-                    initialNumToRender={10}
-                />
-            </View>
             {cartState.cartItems.length > 0 ? (
-                <View
-                    style={{ position: 'absolute', bottom: 0, width: '100%', zIndex: 99 }}
-                    onLayout={(event) => {
-                        const { height } = event.nativeEvent.layout;
-                        setFooterHeight(height);
+                <>
+                    <View
+                        style={{
+                            paddingHorizontal: 20,
+                            height: height - (headerHeight + footerHeight),
+                        }}
+                    >
+                        <FlatList
+                            data={cartState.cartItems}
+                            keyExtractor={(item) => item.id}
+                            renderItem={renderItem}
+                            showsVerticalScrollIndicator={false}
+                            initialNumToRender={10}
+                        />
+                    </View>
+
+                    <View
+                        style={{
+                            position: 'absolute',
+                            bottom: 0,
+                            width: '100%',
+                            zIndex: 99,
+                        }}
+                        onLayout={(event) => {
+                            const { height } = event.nativeEvent.layout;
+                            setFooterHeight(height);
+                        }}
+                    >
+                        <BillingDetails totalPrice={totalPrice} />
+                    </View>
+                </>
+            ) : (
+                <Text
+                    style={{
+                        fontFamily: globalStyle.font.medium,
+                        fontSize: 16,
+                        paddingHorizontal: 20
                     }}
                 >
-                    <BillingDetails totalPrice={totalPrice} />
-                </View>
-            ) : null}
+                    Cart is empty! Add some items.
+                </Text>
+            )}
         </SafeAreaView>
     );
 };

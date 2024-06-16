@@ -1,14 +1,14 @@
-import { useFonts, Manrope_300Light, Manrope_400Regular, Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold } from "@expo-google-fonts/manrope"
+// import { useFonts, Manrope_300Light, Manrope_400Regular, Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold } from "@expo-google-fonts/manrope"
 
 export const useGlobalStyle = () => {
-    let [fontsLoaded] = useFonts({
-        Manrope_300Light,
-        Manrope_400Regular,
-        Manrope_500Medium,
-        Manrope_600SemiBold,
-        Manrope_700Bold,
-        Manrope_800ExtraBold
-    });
+    // let [fontsLoaded, fontError] = useFonts({
+    //     Manrope_300Light,
+    //     Manrope_400Regular,
+    //     Manrope_500Medium,
+    //     Manrope_600SemiBold,
+    //     Manrope_700Bold,
+    //     Manrope_800ExtraBold
+    // });
 
     const globalStyle = {
         font: {
@@ -20,8 +20,8 @@ export const useGlobalStyle = () => {
             extraBold: 'Manrope_800ExtraBold',
         },
         color: {
-            primary: '#2A4BA0',
-            secondary: '#F9B023'
+            primary: '#740074',
+            secondary: '#C1FF00'
         }
     }
     return { globalStyle }

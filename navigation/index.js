@@ -5,10 +5,7 @@ import BottomNavbar from './bottomNavbar'
 import Home from '../screens/home'
 import Cart from '../screens/cart'
 import Product from '../screens/product'
-import Categories from '../screens/categories'
 import Favorites from '../screens/favorites'
-import More from '../screens/more'
-
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -24,16 +21,12 @@ const TabNavigator = () => {
                 component={Home}
             />
             <Tab.Screen
-                name="Categories"
-                component={Categories}
-            />
-            <Tab.Screen
                 name="Favorites"
                 component={Favorites}
             />
             <Tab.Screen
-                name="More"
-                component={More}
+                name="Cart"
+                component={Cart}
             />
         </Tab.Navigator>
     )
@@ -45,13 +38,13 @@ const Navigator = () => {
             screenOptions={{ headerShown: false }}
             initialRouteName={'TabMenu'}
         >
-            <Stack.Screen name="Cart" component={Cart} options={{
-                animation: 'fade_from_bottom',
-            }} />
             <Stack.Screen
                 name="Product"
                 component={Product}
             />
+            <Stack.Screen name="Cart" component={Cart} options={{
+                animation: 'fade_from_bottom',
+            }} />
             <Stack.Screen
                 name="TabMenu"
                 component={TabNavigator}

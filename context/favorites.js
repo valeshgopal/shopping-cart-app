@@ -6,14 +6,14 @@ const showBaseToast = () => {
         type: 'success',
         text1: 'Item added to favorites',
     });
-}
+};
 
 const showErrorToast = () => {
     Toast.show({
         type: 'error',
         text1: 'Item removed from favorites',
     });
-}
+};
 
 const FavoriteContext = createContext();
 
@@ -34,12 +34,15 @@ export const FavoriteProvider = ({ children }) => {
 
     const addToFavorites = (item) => {
         dispatch({ type: 'ADD_TO_FAVORITES', payload: item });
-        showBaseToast()
+        showBaseToast();
     };
 
     const removeFromFavorites = (item) => {
-        dispatch({ type: 'REMOVE_FROM_FAVORITES', payload: { ...item, isFavorite: false } });
-        showErrorToast()
+        dispatch({
+            type: 'REMOVE_FROM_FAVORITES',
+            payload: { ...item, isFavorite: false },
+        });
+        showErrorToast();
     };
 
     return (

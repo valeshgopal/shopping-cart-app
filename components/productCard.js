@@ -51,12 +51,12 @@ const ProductCard = ({ product, index }) => {
                 onPress={() => navigation.navigate('Product', { product })}
             >
                 <View>
-                    <Image source={{ uri: product.thumbnail }} style={styles.image} />
+                    <Image source={{ uri: product.attributes.image }} style={styles.image} />
                     <View style={{ marginTop: 30, paddingHorizontal: 17 }}>
                         <Text
                             style={{ fontFamily: globalStyle.font.semibold, marginBottom: 4 }}
                         >
-                            ${product.price}
+                            ${product.attributes.price}
                         </Text>
                         <Text
                             style={{
@@ -66,7 +66,7 @@ const ProductCard = ({ product, index }) => {
                             }}
                             numberOfLines={1}
                         >
-                            {product.title}
+                            {product.attributes.name}
                         </Text>
                     </View>
                 </View>
@@ -75,7 +75,7 @@ const ProductCard = ({ product, index }) => {
                 style={styles.plusIcon}
                 onPress={() => handleAddToCart(product)}
             >
-                <PlusIconTwo />
+                <PlusIconTwo fill={globalStyle.color.primary} />
             </TouchableOpacity>
         </View>
     );
@@ -86,14 +86,26 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 194,
         maxWidth: '48%',
-        marginBottom: 22,
+        marginVertical: 12,
+        borderWidth: 1,
         borderRadius: 12,
-        backgroundColor: 'rgba(248, 249, 251, 1)',
+        borderColor: 'rgba(248, 249, 251, 1)',
+        backgroundColor: '#fff',
+        shadowColor:
+            'rgba(1,1,1,0.2)',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 1.0,
+        shadowRadius: 5.0,
+        elevation: 5,
     },
     image: {
-        width: 68,
-        height: 68,
+        width: 72,
+        height: 72,
         borderRadius: 12,
+        objectFit: 'contain',
         alignSelf: 'center',
     },
     plusIcon: {
